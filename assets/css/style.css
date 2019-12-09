@@ -1,0 +1,10 @@
+#minutes {
+    font-size: 6em;
+    float: left;
+    margin-left: 25%;
+  }
+  
+  #seconds {
+    font-size: 4em;
+    float: left;
+  }
