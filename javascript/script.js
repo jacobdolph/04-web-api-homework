@@ -1,7 +1,20 @@
+var buttonEl = document.createElement("button");
+var liEl = document.createElement("li");
+var divEl = document.createElement("div");
+var aEl = document.createElement("a");
+
+
+
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var startGame = document.querySelector("#start-game");
 var viewScores = document.querySelector("#view-highscore");
+var question = document.querySelector("#quiz-question");
+var options = document.querySelector("#choice-options");
+
+var score = 0;
+
+var gameAreaEl = document.querySelector("#interaction-area");
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
@@ -68,6 +81,31 @@ function stopTimer() {
     setTime();
     renderTime();
 }
+
+
+
+
+
+
+startGame.addEventListener("click", function () {
+    for (var i = 0; i < questions.length; i++) {
+
+
+
+        for (var n = 0; n < questions[i].choices.length; n++) {
+            buttonEl.textContent = questions[i].choices[n];
+            buttonEl.setAttribute("class", "btn btn-danger")
+            options.appendChild(buttonEl);
+
+            console.log(questions[i].choices[n]);
+        }
+
+    }
+
+
+
+
+})
 
 
 startGame.addEventListener("click", startTimer);
