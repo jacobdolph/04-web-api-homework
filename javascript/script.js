@@ -1,4 +1,4 @@
-var buttonEl = document.createElement("button");
+
 var liEl = document.createElement("li");
 var divEl = document.createElement("div");
 var aEl = document.createElement("a");
@@ -11,7 +11,8 @@ var startGame = document.querySelector("#start-game");
 var viewScores = document.querySelector("#view-highscore");
 var question = document.querySelector("#quiz-question");
 var options = document.querySelector("#choice-options");
-
+var quizChoices;
+var answers;
 var score = 0;
 
 var gameAreaEl = document.querySelector("#interaction-area");
@@ -84,28 +85,50 @@ function stopTimer() {
 
 
 
-
+var quizBtn;
 
 
 startGame.addEventListener("click", function () {
     for (var i = 0; i < questions.length; i++) {
 
+        question.textContent = questions[i].title;
 
+        function checkAnswerFunction() {
+
+        }
 
         for (var n = 0; n < questions[i].choices.length; n++) {
-            buttonEl.textContent = questions[i].choices[n];
-            buttonEl.setAttribute("class", "btn btn-danger")
-            options.appendChild(buttonEl);
+            answers = questions[i].answer;
+            quizChoices = questions[i].choices[n];
+            var buttonEl = document.createElement("button");
+            buttonEl.setAttribute("class", "btn btn-danger quiz-btn");
+            buttonEl.setAttribute("onclick", "quizAnswer");
+            buttonEl.textContent = quizChoices;
+            options.append(buttonEl);
 
             console.log(questions[i].choices[n]);
+            quizBtn = document.querySelector(".quiz-btn");
+            quizBtn.addEventListener("click", function () {
+                if (quizBtn.textContent === answers) {
+                    console.log("trueest")
+                }
+            })
+
         }
+
+        checkAnswerFunction();
 
     }
 
+});
 
 
 
-})
+
+
+
+
+
 
 
 startGame.addEventListener("click", startTimer);
