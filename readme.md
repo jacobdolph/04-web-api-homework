@@ -8,3 +8,5 @@ In this assignment I learned how to create a timer and create a list of question
 the game will begin once the start game button is clicked
 
 once the timer reaches zero the clock will reset back to 3 minutes and the game will be over.
+
+This week was tough, I had big projects for work that were competing for my time. 

@@ -2,7 +2,12 @@
 var liEl = document.createElement("li");
 var divEl = document.createElement("div");
 var aEl = document.createElement("a");
+var createForm = document.createElement("form")
+var userNameInput = document.createElement("input");
+var createButton = document.createElement("button");
 
+
+var scoreStore = localStorage.getItem("scoreStore");
 
 var btn;
 var minutesDisplay = document.querySelector("#minutes");
@@ -307,11 +312,22 @@ function quistion10() {
 
             if (this.textContent === answers) {
                 score++
+                question.textContent = "Input your Name!";
                 clearChilds();
                 stopTimer();
+                localStorage.setItem("scoreStore", score)
+                options.append(userNameInput);
+                options.append(createButton);
+                createButton.setAttribute("id", "add-btn")
+                createButton.textContent = "Submit";
+
             } else {
+                question.textContent = "Input your Name!";
                 clearChilds()
                 stopTimer()
+                localStorage.setItem("scoreStore", score);
+                options.append(userNameInput);
+                options.append(createButton);
 
             }
         });
