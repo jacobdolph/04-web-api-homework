@@ -47,7 +47,7 @@ var questions = [
     },
     {
         title: "Inside which HTML element do we put our javascript",
-        choices: ["<scripting>", , "<javascript>", "<js>"],
+        choices: ["<scripting>", "<script>", "<javascript>", "<js>"],
         answer: "<script>"
 
     },
