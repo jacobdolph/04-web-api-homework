@@ -5,8 +5,8 @@ var aEl = document.createElement("a");
 var createForm = document.createElement("form")
 var userNameInput = document.createElement("input");
 var createButton = document.createElement("button");
-
-
+var user;
+var createH2El = document.createElement("h2");
 var scoreStore = localStorage.getItem("scoreStore");
 
 var btn;
@@ -316,18 +316,51 @@ function quistion10() {
                 clearChilds();
                 stopTimer();
                 localStorage.setItem("scoreStore", score)
-                options.append(userNameInput);
-                options.append(createButton);
+                options.append(createForm);
+                createForm.setAttribute("method", "POST");
+                createForm.setAttribute("id", "form");
+                formEl = document.querySelector("#form");
+                formEl.append(userNameInput);
+                userNameInput.setAttribute("type", "text")
+                formEl.append(createButton);
                 createButton.setAttribute("id", "add-btn")
+                createButton.setAttribute("class", "btn btn-danger")
                 createButton.textContent = "Submit";
+                var addBtn = document.querySelector("#add-btn")
+                addBtn.addEventListener("click", function () {
+                    user = {
+                        Name: userNameInput.value.trim(),
+                        Score: score
+                    };
+                    localStorage.setItem("user", JSON.stringify(user));
+
+                })
+
 
             } else {
                 question.textContent = "Input your Name!";
                 clearChilds()
                 stopTimer()
                 localStorage.setItem("scoreStore", score);
-                options.append(userNameInput);
-                options.append(createButton);
+                options.append(createForm);
+                createForm.setAttribute("method", "POST");
+                createForm.setAttribute("id", "form");
+                formEl = document.querySelector("#form")
+                formEl.append(userNameInput);
+                userNameInput.setAttribute("type", "text")
+                formEl.append(createButton);
+                createButton.setAttribute("id", "add-btn")
+                createButton.setAttribute("class", "btn btn-danger")
+                createButton.textContent = "Submit";
+                var addBtn = document.querySelector("#add-btn")
+                addBtn.addEventListener("click", function () {
+                    user = {
+                        Name: userNameInput.value.trim(),
+                        Score: score
+                    };
+                    localStorage.setItem("user", JSON.stringify(user));
+
+                })
 
             }
         });
@@ -388,7 +421,14 @@ startGame.addEventListener("click", function () {
 
 
 
-
-
-
 startGame.addEventListener("click", startTimer);
+
+viewScores.addEventListener("click", function () {
+    question.append(createH2El);
+    createH2El.setAttribute("id", "h2-name")
+
+    var lastUser = JSON.parse(localStorage.getItem("user"));
+    createH2El.textContent = "Name: " + lastUser.Name + " | Score: " + lastUser.Score;
+
+
+})

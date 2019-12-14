@@ -9,4 +9,13 @@ the game will begin once the start game button is clicked
 
 once the timer reaches zero the clock will reset back to 3 minutes and the game will be over.
 
-This week was tough, I had big projects for work that were competing for my time. 
+When all of the questions have been answered the game will be over and the timer will reset back to 3 minutes resting.
+
+each question give you a point. getting an answer wrong in this version of the game rewards no penalty other than granting no point.
+
+after the game is over the game will ask for your name and save you name and score to local storage.
+when you click on view high scores the game will display the last score... I could not get multiple users saved to local storage.
+
+![trivia-game](assets/images/trivia-quiz-mobile.png)
+![trivia-game](assets/images/trivia-quiz.png)
+

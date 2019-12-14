@@ -12,7 +12,7 @@ var questions = [
     {
         title: "Booleans are what?",
         choices: ["compare numbers to strings", "is a true or false statement", "what you find in pirate treasure chests", "it is a prompt"],
-        answer: "is a true or false statment"
+        answer: "is a true or false statement"
 
     },
     {
